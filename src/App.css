@@ -1,35 +1,39 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
-/* using this font as a drop-in replacement for Avenir */
-* {
-  font-family: 'Raleway', sans-serif;
+.feedback-form textarea {
+  box-sizing: border-box;
+  resize: vertical;
+  width: 100%;
+  min-height: 5.5em;
+  margin: 0 auto;
+  padding: 0.5em;
+  border: 1pt solid rgb(196, 198, 202);
+  border-radius: 0.3em;
+  font-size: 11pt;
 }
 
-.App {
-  text-align: center;
+.feedback-form textarea::placeholder {
+  color: #c0c1c4;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.feedback-form input {
+  float: right;
+  font-weight: bold;
+  font-size: 10pt;
+  padding: 0.3em 1em 0.6em;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.feedback-form input[type="submit"] {
+  background: #3279db;
+  border: 1pt solid #2c6bc4;
+  border-bottom-width: 3pt;
+  border-radius: 0.3em;
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.feedback-form input[type="button"] {
+  background: none;
+  color: #9aa3b4;
+  border-color: rgba(0,0,0,0);
+  border-bottom-width: 5pt;
 }
