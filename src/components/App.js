@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
 import FeedbackForm from './FeedbackForm';
-import TextBubble from './TextBubble';
+import FeedbackConversation from '../containers/FeedbackConversation';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <TextBubble />
-        <TextBubble />
+        <FeedbackConversation />
         <FeedbackForm />
       </div>
     );
