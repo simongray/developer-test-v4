@@ -3,10 +3,7 @@ import './TextBubble.css'
 import moment from 'moment'
 
 const TextBubble = ({ loggedInUser, date, id_user, message }) => {
-	let jsDate = new Date(0)
-	jsDate.setUTCSeconds(date)
-	const dateString = moment(jsDate).format("Do MMMM H.mm")
-
+	const dateString = moment.unix(date).format("Do MMMM H.mm")
 	const cssClasses = "text-bubble " + (loggedInUser == id_user? "own" : "other")
 
 	return (
