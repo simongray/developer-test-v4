@@ -1,0 +1,36 @@
+.text-bubble {
+  border: 1pt solid #e4edfa;
+  border-radius: 0.6em;
+  background: white;
+  padding: 1em;
+  font-size: 10pt;
+  margin-bottom: 0.6em;
+}
+
+.own {
+  margin-left: 15%;
+}
+
+.other {
+  margin-right: 15%;
+}
+
+.text-bubble .header .author, 
+.text-bubble .grade {
+  font-weight: bold;
+  color: #222;
+}
+
+.text-bubble .header .time {
+  color: #afb6c5;
+  margin-left: 1ch;
+}
+
+.text-bubble p {
+  color: #2f2f2f;
+  margin: 1em 0;
+}
+
+.text-bubble .footer {
+  color: #9da6b8;
+}

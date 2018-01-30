@@ -1,4 +1,6 @@
 /* using this font as a drop-in replacement for Avenir */
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
 * {
   font-family: 'Raleway', sans-serif;
 }
