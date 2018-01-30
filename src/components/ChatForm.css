@@ -1,4 +1,4 @@
-.feedback-form textarea {
+.chat-form textarea {
   box-sizing: border-box;
   resize: vertical;
   width: 100%;
@@ -10,18 +10,18 @@
   font-size: 11pt;
 }
 
-.feedback-form textarea::placeholder {
+.chat-form textarea::placeholder {
   color: #c0c1c4;
 }
 
-.feedback-form input {
+.chat-form input {
   float: right;
   font-weight: bold;
   font-size: 10pt;
   padding: 0.3em 1em 0.6em;
 }
 
-.feedback-form input[type="submit"] {
+.chat-form input[type="submit"] {
   background: #3279db;
   border: 1pt solid #2c6bc4;
   border-bottom-width: 3pt;
@@ -29,7 +29,7 @@
   color: white;
 }
 
-.feedback-form input[type="button"] {
+.chat-form input[type="button"] {
   background: none;
   color: #9aa3b4;
   border-color: rgba(0,0,0,0);

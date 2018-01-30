@@ -3,7 +3,7 @@ import TextBubble from './TextBubble';
 import './Conversation.css';
 
 const Conversation = ({ messages, loggedInUser }) => (
-  <ul class="conversation">
+  <ul className="conversation">
     {messages.map((message, index) => (
       <TextBubble key={index} loggedInUser={loggedInUser} {...message} />
     ))}

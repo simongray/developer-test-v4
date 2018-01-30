@@ -4,14 +4,15 @@ import moment from 'moment'
 
 const TextBubble = ({ loggedInUser, date, id_user, message }) => {
 	const dateString = moment.unix(date).format("Do MMMM H.mm")
-	const cssClasses = "text-bubble " + (loggedInUser == id_user? "own" : "other")
+	const cssClasses = "text-bubble " + (loggedInUser === id_user? "own" : "other")
+	const paragraphs = message.split("\n");
 
 	return (
-	  <li class={cssClasses}>
-	    <div class="header">
-	      <span class="author">Peer #{id_user} wrote</span> <span class="time">{dateString}</span>
+	  <li className={cssClasses}>
+	    <div className="header">
+	      <span className="author">Peer #{id_user} wrote</span> <span className="time">{dateString}</span>
 	    </div>
-	    <p>{message}</p>
+	    {paragraphs.map((paragraph, id) => (<p key={id}>{paragraph}</p>))}
 	    {/*
 	    <div class="footer">
 	      David changed the grade on question 2 from <span class="grade">No answer</span> to <span class="grade">Exceeds expectations</span>
