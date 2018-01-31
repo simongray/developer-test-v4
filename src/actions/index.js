@@ -27,3 +27,8 @@ export const updateInput = (value) => ({
 	type: UPDATE_INPUT,
 	value: value
 })
+
+export const addMessageAndClear = (message, userID) => dispatch => {
+	dispatch(addMessage(message, userID))
+	dispatch(updateInput(""))
+}

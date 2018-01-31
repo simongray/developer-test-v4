@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { addMessage, updateInput } from '../actions/index'
+import { addMessageAndClear, updateInput } from '../actions/index'
 import ChatForm from '../components/ChatForm'
 
 function mapStateToProps(state) {
@@ -10,7 +10,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  handleSubmit: addMessage,
+  handleSubmit: addMessageAndClear,
   handleChange: updateInput
 }
 
