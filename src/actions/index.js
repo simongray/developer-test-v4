@@ -32,10 +32,10 @@ export const addMessageAsync = (message, userId) => async dispatch => {
 			{
 				method: 'put',
 				body: JSON.stringify({
-    				message: message,
-    				id_user: userId
-    			}),
-    			headers: jsonHeaders
+					message: message,
+					id_user: userId
+				}),
+				headers: jsonHeaders
 			}
 		)
 
