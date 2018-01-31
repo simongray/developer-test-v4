@@ -1,21 +1,28 @@
-const ADD_MESSAGE = 'ADD_MESSAGE'
-const UPDATE_INPUT = 'UPDATE_INPUT'
+export const ADD_MESSAGE = 'ADD_MESSAGE'
+export const UPDATE_INPUT = 'UPDATE_INPUT'
+export const GET_MESSAGES = 'GET_MESSAGES'
 
 
-const addMessage = (message, userId) => ({
+export const getMessagesAsync = () => async dispatch => {
+	try {
+		const messages = await fetch("http://127.0.0.1:5000/")
+
+		dispatch({
+			type: GET_MESSAGES,
+			messages: await messages.json()
+		})
+	} catch (e) {
+		console.error(e)
+	}
+}
+
+export const addMessage = (message, userId) => ({
   type: ADD_MESSAGE,
   message,
   userId
 })
 
-const updateInput = (value) => ({
+export const updateInput = (value) => ({
 	type: UPDATE_INPUT,
 	value: value
 })
-
-export {
-	addMessage,
-	updateInput,
-	ADD_MESSAGE,
-	UPDATE_INPUT
-}
