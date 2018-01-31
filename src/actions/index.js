@@ -2,10 +2,11 @@ export const ADD_MESSAGE = 'ADD_MESSAGE'
 export const UPDATE_INPUT = 'UPDATE_INPUT'
 export const GET_MESSAGES = 'GET_MESSAGES'
 
+const base = "http://127.0.0.1:5000"
 
 export const getMessagesAsync = () => async dispatch => {
 	try {
-		const messages = await fetch("http://127.0.0.1:5000/")
+		const messages = await fetch(base + "/messages")
 
 		dispatch({
 			type: GET_MESSAGES,
