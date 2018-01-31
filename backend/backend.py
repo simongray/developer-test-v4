@@ -1,9 +1,11 @@
 from flask import Flask
-from flask import jsonify
 from flask import request
 from flask_cors import CORS
+from mongoengine import connect, StringField, IntField, Document
+import time
 
 app = Flask(__name__)
+connect('devtest')
 CORS(app)  # allow cross-origin requests
 
 mock_messages = [
@@ -25,14 +27,39 @@ mock_messages = [
 ]
 
 
+class Message(Document):
+    message = StringField()
+    id_user = IntField()
+    date = IntField()
+
+
+def add_message(message, id_user, date=None):
+    """
+    Add a message to the db.
+    Injects the current timestamp if date is not specified.
+    """
+    date = date if date else int(time.time())
+    Message(message=message, id_user=id_user, date=date).save()
+
+
+# clear db and populate with mock data on start-up
+Message.objects.delete()
+for msg in mock_messages:
+    add_message(msg["message"], msg["id_user"], msg["date"])
+
+
 @app.route("/messages", methods=['GET', 'PUT'])
 def main():
     if request.method == 'GET':
-        return jsonify(mock_messages)
+        return Message.objects.to_json()
 
     if request.method == 'PUT':
-        mock_messages.append(request.get_json())
-        return jsonify(mock_messages)
+        msg = request.get_json()
+
+        # date timestamp is injected server-side
+        add_message(msg["message"], msg["id_user"])
+
+        return Message.objects.to_json()
 
 
 if __name__ == "__main__":

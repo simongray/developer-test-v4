@@ -24,6 +24,7 @@ export const getMessagesAsync = () => async dispatch => {
 	}
 }
 
+// only sends message and id_user, date is injected server-side
 export const addMessageAsync = (message, userId) => async dispatch => {
 	try {
 		const messages = await fetch(
@@ -32,8 +33,7 @@ export const addMessageAsync = (message, userId) => async dispatch => {
 				method: 'put',
     			body: JSON.stringify({
     				message: message,
-        			id_user: userId,
-        			date: 1485393386
+        			id_user: userId
     			}),
     			headers: jsonHeaders
 			}
