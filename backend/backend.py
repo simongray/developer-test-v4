@@ -25,9 +25,13 @@ mock_messages = [
 ]
 
 
-@app.route("/messages", methods=['GET', 'POST'])
+@app.route("/messages", methods=['GET', 'PUT'])
 def main():
     if request.method == 'GET':
+        return jsonify(mock_messages)
+
+    if request.method == 'PUT':
+        mock_messages.append(request.get_json())
         return jsonify(mock_messages)
 
 
