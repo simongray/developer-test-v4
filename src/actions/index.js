@@ -31,9 +31,9 @@ export const addMessageAsync = (message, userId) => async dispatch => {
 			endpoint("/messages"),
 			{
 				method: 'put',
-    			body: JSON.stringify({
+				body: JSON.stringify({
     				message: message,
-        			id_user: userId
+    				id_user: userId
     			}),
     			headers: jsonHeaders
 			}
@@ -47,12 +47,6 @@ export const addMessageAsync = (message, userId) => async dispatch => {
 		console.error(e)
 	}
 }
-
-export const addMessage = (message, userId) => ({
-  type: ADD_MESSAGE,
-  message,
-  userId
-})
 
 export const updateInput = (value) => ({
 	type: UPDATE_INPUT,
